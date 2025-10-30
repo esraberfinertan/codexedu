@@ -1,0 +1,24 @@
+# Render Blueprint for CodexEDU Streamlit frontend (Python 3.11)
+services:
+  - type: web
+    name: codexedu
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run frontend/app.py --server.port=10000 --server.address=0.0.0.0
+    envVars:
+      - key: API_BASE
+        value: "https://codexedu-api.onrender.com"
+      - key: PORT
+        value: "10000"
+      - key: PYTHON_VERSION
+        value: "3.11"
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    autoDeploy: true
+# This config deploys the frontend as https://codexedu.onrender.com
+# It connects to your backend via the API_BASE env var.
