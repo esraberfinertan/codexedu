@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 API_BASE = st.secrets.get("api_base", "http://localhost:8000")
-api_base = https://codexedu.onrender.com
+api_base = "https://codexedu.onrender.com"
 
 def do_login(email: str, password: str):
     resp = requests.post(f"{API_BASE}/auth/login", json={"email": email, "password": password})
