@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import altair as alt
 
-API_BASE = st.secrets.get("api_base", "http://localhost:8000")
+API_BASE = st.secrets.get("api_base", "https://codexedu.onrender.com")
 
 
 def auth_headers():
