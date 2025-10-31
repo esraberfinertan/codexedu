@@ -14,18 +14,6 @@ from ai_engine.report_analyzer import analyze_performance
 from ai_engine.dataset_builder import append_result_to_dataset
 
 
-from fastapi import APIRouter
-import sqlite3
-
-@app.get("/debug/users")
-def list_users():
-    conn = sqlite3.connect("data/users.db")
-    cur = conn.cursor()
-    cur.execute("SELECT id, name, email, role FROM users")
-    rows = cur.fetchall()
-    return {"users": rows}
-
-
 class GenerateExamRequest(BaseModel):
     topics: Optional[List[str]] = None
     mode: Optional[str] = "ai"  # deterministic | ai | ai_adaptive (AI default if available)
