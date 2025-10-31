@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import requests
-
-API_BASE = st.secrets.get("api_base", "https://codexedu.onrender.com")
+import os
+API_BASE = os.environ.get("API_BASE", "https://codexedu-api.onrender.com")
 
 
 token = st.session_state.get("token")
