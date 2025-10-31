@@ -7,13 +7,11 @@ import os
 import json
 from datetime import datetime
 
-from backend.auth import router as auth_router, decode_access_token
-from backend.database import ExamsSession, Exam, init_databases
-from backend.ai_engine.question_generator import generate_exam
-from backend.ai_engine.report_analyzer import analyze_performance
-from backend.ai_engine.dataset_builder import append_result_to_dataset
-
-
+from auth import router as auth_router, decode_access_token
+from database import ExamsSession, Exam, init_databases
+from ai_engine.question_generator import generate_exam
+from ai_engine.report_analyzer import analyze_performance
+from ai_engine.dataset_builder import append_result_to_dataset
 
 class GenerateExamRequest(BaseModel):
     topics: Optional[List[str]] = None
