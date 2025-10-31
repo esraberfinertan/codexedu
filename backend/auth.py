@@ -7,7 +7,7 @@ import os
 import jwt
 from passlib.hash import pbkdf2_sha256
 
-from .database import UsersSession, User
+from database import UsersSession, User
 
 
 router = APIRouter()
